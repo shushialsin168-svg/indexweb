@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Hanuman:wght@400;700&display=swap');
+        
+        body { 
+            background-color: #dcd7e0; 
+            font-family: 'Hanuman', serif; 
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* 1:1 Mobile Scale Container */
+        .app-window {
+            width: 375px;
+            height: 812px;
+            background-color: #1a1c2e;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 0 40px rgba(0,0,0,0.4);
+        }
+
+        .header-bg { background-color: #23273e; }
+        .match-status-green { background-color: #2ecc71; }
+        .meron-red { background-color: #f04e4e; }
+        .tie-green { background-color: #2ecc71; }
+        .wala-blue { background-color: #2b82e4; }
+        .action-blue { background-color: #2476e3; }
+        
+        .odds-panel {
+            background: linear-gradient(180deg, #2b2e4a 0%, #1a1c2e 100%);
+        }
+
+        /* Enhanced Chip Designs with Inner Rings */
+        .chip {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 3px dashed rgba(255,255,255,0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: bold;
+            color: white;
+            position: relative;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.4);
+        }
+
+        .chip::after {
+            content: "★";
+            position: absolute;
+            bottom: 2px;
+            font-size: 6px;
+            opacity: 0.8;
+        }
+
+        .grid-cell {
+            border-right: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-window">
+        
+        <header class="header-bg h-[44px] flex justify-between items-center shrink-0">
+            <div class="flex h-full items-center">
+                <div class="bg-[#333333] h-full w-[46px] flex flex-col items-center justify-center border-r border-gray-700">
+                    <div class="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
+                        <span class="text-[10px] text-white font-black">S</span>
+                    </div>
+                    <span class="text-[6px] text-white font-bold tracking-tighter mt-0.5">SABONG24</span>
+                </div>
+                <div class="match-status-green h-full px-4 flex items-center justify-center">
+                    <span class="text-white font-bold text-[13px]">បើក / #12</span>
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-1 pr-1.5">
+                <div class="w-6 h-6 bg-white rounded-full flex items-center justify-center p-0.5 shadow-sm">
+                    <img src="https://api.dicebear.com/7.x/initials/svg?seed=U&backgroundColor=ffffff&textColor=3b82f6" class="rounded-full">
+                </div>
+                <div class="w-6 h-6 bg-white rounded-full flex items-center justify-center p-0.5 shadow-sm">
+                    <img src="https://api.dicebear.com/7.x/initials/svg?seed=R&backgroundColor=ffffff&textColor=ef4444" class="rounded-full">
+                </div>
+                <div class="w-6 h-6 bg-white rounded-full flex items-center justify-center p-0.5 shadow-sm">
+                    <div class="w-full h-full rounded-full bg-orange-900 text-white flex items-center justify-center text-[7px] font-bold">24</div>
+                </div>
+                <div class="w-6 h-6 bg-white rounded-full p-0.5 shadow-sm">
+                    <div class="w-full h-full bg-yellow-500 rounded-full border border-gray-100"></div>
+                </div>
+                <div class="w-6 h-6 bg-white rounded-full p-0.5 shadow-sm">
+                    <div class="w-full h-full bg-blue-400 rounded-full border border-gray-100"></div>
+                </div>
+                <div class="w-6 h-6 bg-white rounded-full flex items-center justify-center shadow-sm">
+                    <span class="text-black font-bold text-[7px]">PG</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="relative w-full h-[210px] bg-black shrink-0">
+            <img src="https://images.unsplash.com/photo-1599735073727-208cb54790ed?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover opacity-90">
+            <div class="absolute top-2 right-2 bg-transparent">
+                 <div class="w-8 h-8 rounded-full border border-white/20 bg-black/40 flex items-center justify-center">
+                    <span class="text-xs">🐓</span>
+                 </div>
+            </div>
+        </div>
+
+        <div class="bg-[#2a2d45] flex justify-center gap-4 py-1.5 shrink-0 border-b border-black/30">
+            <div class="w-6 h-6 rounded-full bg-gray-600/50 flex items-center justify-center border border-green-500/50">🐓</div>
+            <div class="w-6 h-6 rounded-full bg-gray-600/50 flex items-center justify-center border border-green-500/50 text-[10px]">A</div>
+            <div class="w-6 h-6 rounded-full bg-gray-600/50 flex items-center justify-center border border-green-500/50 text-[10px]">B</div>
+            <div class="w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center border border-white/20 text-[10px] font-bold">W</div>
+            <div class="w-6 h-6 rounded-full bg-red-600 flex items-center justify-center border border-white/20 text-[10px] font-bold">M</div>
+        </div>
+
+        <div class="flex text-white font-bold text-[13px] h-[36px] shrink-0">
+            <div class="meron-red flex-1 flex items-center justify-center uppercase">Meron</div>
+            <div class="tie-green flex-1 flex items-center justify-center uppercase">Tie</div>
+            <div class="wala-blue flex-1 flex items-center justify-center uppercase">Wala</div>
+        </div>
+
+        <div class="odds-panel grid grid-cols-3 py-4 text-center shrink-0 border-b border-white/5">
+            <div><div class="text-2xl font-bold text-white">2.15</div><div class="text-gray-400 text-[10px]">0</div></div>
+            <div><div class="text-2xl font-bold text-white">8</div><div class="text-gray-400 text-[10px]">0</div></div>
+            <div><div class="text-2xl font-bold text-white">1.67</div><div class="text-gray-400 text-[10px]">0</div></div>
+        </div>
+
+        <div class="bg-[#24273d] grid grid-cols-3 gap-3 p-3 shrink-0">
+            <button class="action-blue text-white py-1.5 rounded-md text-[11px] font-bold flex items-center justify-center gap-1 shadow-lg"><span>⊕</span> ខ្ពស់</button>
+            <button class="action-blue text-white py-1.5 rounded-md text-[11px] font-bold flex items-center justify-center gap-1 shadow-lg"><span>⊕</span> ខ្ពស់</button>
+            <button class="action-blue text-white py-1.5 rounded-md text-[11px] font-bold flex items-center justify-center gap-1 shadow-lg"><span>⊕</span> ខ្ពស់</button>
+        </div>
+
+        <div class="p-3 bg-[#1a1c2e] shrink-0">
+            <p class="text-[10px] text-center mb-2 font-bold">
+                <span class="text-red-500">តិចបំផុត: 4,000</span> និង <span class="text-red-500">ច្រើនបំផុត: 400,000</span>
+            </p>
+            <div class="flex h-10 border border-indigo-500/50 rounded-md overflow-hidden">
+                <input type="text" class="flex-grow bg-white px-3 font-bold text-black outline-none" placeholder="0">
+                <button class="bg-[#2c3158] w-12 flex items-center justify-center border-l border-white/10 text-white">✕</button>
+            </div>
+        </div>
+
+        <div class="flex justify-between px-2 pb-4 shrink-0">
+            <div class="chip bg-red-800 border-red-400">៥៣០ខ</div>
+            <div class="chip bg-pink-600 border-pink-300">១ម៉ឺន</div>
+            <div class="chip bg-blue-700 border-blue-400">៥ម៉ឺន</div>
+            <div class="chip bg-yellow-600 border-yellow-300">១០ម៉ឺន</div>
+            <div class="chip bg-green-600 border-green-300">៥០ម៉ឺន</div>
+            <div class="chip bg-green-900 border-green-600">១លាន</div>
+        </div>
+
+        <div class="flex-grow bg-white m-0.5 p-0.5 overflow-hidden">
+            <div class="grid grid-cols-12 grid-rows-6 h-full">
+                <div class="grid-cell"></div>
+                <div class="grid-cell"><div class="bg-blue-500 rounded-full w-5 h-5 flex items-center justify-center text-white text-[9px]">2</div></div>
+                <div class="grid-cell"><div class="bg-red-500 rounded-full w-5 h-5 flex items-center justify-center text-white text-[9px]">6</div></div>
+                <div class="grid-cell"><div class="bg-blue-500 rounded-full w-5 h-5 flex items-center justify-center text-white text-[9px]">8</div></div>
+                <div class="grid-cell"><div class="bg-red-500 rounded-full w-5 h-5 flex items-center justify-center text-white text-[9px]">11</div></div>
+                <div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
+                <div class="grid-cell"><div class="bg-red-500 rounded-full w-5 h-5 flex items-center justify-center text-white text-[9px]">1</div></div>
+                <div class="grid-cell"><div class="bg-blue-500 rounded-full w-5 h-5 flex items-center justify-center text-white text-[9px]">3</div></div>
+                <div class="grid-cell"><div class="bg-red-500 rounded-full w-5 h-5 flex items-center justify-center text-white text-[9px]">7</div></div>
+                <div class="grid-cell"><div class="bg-blue-500 rounded-full w-5 h-5 flex items-center justify-center text-white text-[9px]">9</div></div>
+            </div>
+        </div>
+
+        <footer class="bg-[#0c0d15] h-[55px] flex justify-between items-center px-3 border-t border-gray-800 shrink-0">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center text-lg shadow-inner">👤</div>
+                <div class="flex flex-col">
+                    <span class="text-blue-400 text-[12px] font-bold leading-none">$ 0</span>
+                    <span class="text-gray-500 text-[9px] mt-1 font-bold uppercase">AABFDAYY215</span>
+                </div>
+            </div>
+            <div class="flex gap-1.5">
+                <div class="w-8 h-8 bg-[#2d3748] rounded flex items-center justify-center border border-gray-700"><span class="text-[8px] text-white font-bold">CW</span></div>
+                <div class="w-8 h-8 bg-red-800 rounded flex items-center justify-center border border-red-600"><span class="text-[8px] text-white font-bold">168</span></div>
+                <div class="w-8 h-8 bg-[#2d3748] rounded flex items-center justify-center border border-gray-700 text-white text-xs">♠</div>
+                <div class="w-8 h-8 bg-[#2d3748] rounded flex items-center justify-center border border-gray-700 text-orange-500 text-xs font-black">S</div>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>
