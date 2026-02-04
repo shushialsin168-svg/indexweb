@@ -15,7 +15,7 @@
             justify-content: center;
         }
 
-        /* 1:1 Mobile Scale Container */
+        /* Fixed 1:1 Mobile Scale Container */
         .app-window {
             width: 375px;
             height: 812px;
@@ -26,171 +26,195 @@
             box-shadow: 0 0 40px rgba(0,0,0,0.4);
         }
 
-        .header-bg { background-color: #23273e; }
-        .match-status-green { background-color: #2ecc71; }
+        /* Color Palette */
         .meron-red { background-color: #f04e4e; }
         .tie-green { background-color: #2ecc71; }
         .wala-blue { background-color: #2b82e4; }
         .action-blue { background-color: #2476e3; }
         
-        .odds-panel {
-            background: linear-gradient(180deg, #2b2e4a 0%, #1a1c2e 100%);
-        }
-
-        /* Enhanced Chip Designs with Inner Rings */
+        /* Chip Styling with Star Icon */
         .chip {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
+            width: 48px; height: 48px; border-radius: 50%;
             border: 3px dashed rgba(255,255,255,0.8);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 10px;
-            font-weight: bold;
-            color: white;
-            position: relative;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.4);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 10px; font-weight: bold; color: white;
+            position: relative; box-shadow: 0 3px 6px rgba(0,0,0,0.4);
         }
-
         .chip::after {
-            content: "★";
-            position: absolute;
-            bottom: 2px;
-            font-size: 6px;
-            opacity: 0.8;
+            content: "★"; position: absolute; bottom: 2px;
+            font-size: 6px; opacity: 0.8;
         }
 
+        /* Fixed Roadmap Grid Scale */
         .grid-cell {
             border-right: 1px solid #e2e8f0;
             border-bottom: 1px solid #e2e8f0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            height: 26px; /* Scaled for 6 rows */
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        /* Footer Logo Containers */
+        .footer-logo-container {
+            position: relative; width: 42px; height: 42px;
+            background: white; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            padding: 2px;
+        }
+        .footer-logo-container img {
+            width: 100%; height: 100%; border-radius: 50%; object-fit: cover;
+        }
+        .status-dot {
+            position: absolute; bottom: -3px; left: 50%;
+            transform: translateX(-50%); width: 8px; height: 8px;
+            border-radius: 50%; border: 1.5px solid #1a1c2e;
+        }
+        .active-footer-tab {
+            background-color: #3b3e54;
+            border-top: 3px solid #f97316; /* Orange active indicator */
         }
     </style>
 </head>
 <body>
 
     <div class="app-window">
-        
-        <header class="header-bg h-[44px] flex justify-between items-center shrink-0">
+        <header class="bg-[#23273e] h-[44px] flex justify-between items-center shrink-0">
             <div class="flex h-full items-center">
                 <div class="bg-[#333333] h-full w-[46px] flex flex-col items-center justify-center border-r border-gray-700">
-                    <div class="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
-                        <span class="text-[10px] text-white font-black">S</span>
-                    </div>
-                    <span class="text-[6px] text-white font-bold tracking-tighter mt-0.5">SABONG24</span>
+                    <div class="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center text-[10px] text-white font-black">S</div>
+                    <span class="text-[6px] text-white font-bold tracking-tighter mt-0.5 uppercase">Sabong24</span>
                 </div>
-                <div class="match-status-green h-full px-4 flex items-center justify-center">
+                <div class="bg-[#2ecc71] h-full px-4 flex items-center justify-center">
                     <span class="text-white font-bold text-[13px]">បើក / #12</span>
                 </div>
             </div>
-            
-            <div class="flex items-center gap-1 pr-1.5">
-                <div class="w-6 h-6 bg-white rounded-full flex items-center justify-center p-0.5 shadow-sm">
-                    <img src="https://api.dicebear.com/7.x/initials/svg?seed=U&backgroundColor=ffffff&textColor=3b82f6" class="rounded-full">
-                </div>
-                <div class="w-6 h-6 bg-white rounded-full flex items-center justify-center p-0.5 shadow-sm">
-                    <img src="https://api.dicebear.com/7.x/initials/svg?seed=R&backgroundColor=ffffff&textColor=ef4444" class="rounded-full">
-                </div>
-                <div class="w-6 h-6 bg-white rounded-full flex items-center justify-center p-0.5 shadow-sm">
-                    <div class="w-full h-full rounded-full bg-orange-900 text-white flex items-center justify-center text-[7px] font-bold">24</div>
-                </div>
-                <div class="w-6 h-6 bg-white rounded-full p-0.5 shadow-sm">
-                    <div class="w-full h-full bg-yellow-500 rounded-full border border-gray-100"></div>
-                </div>
-                <div class="w-6 h-6 bg-white rounded-full p-0.5 shadow-sm">
-                    <div class="w-full h-full bg-blue-400 rounded-full border border-gray-100"></div>
-                </div>
-                <div class="w-6 h-6 bg-white rounded-full flex items-center justify-center shadow-sm">
-                    <span class="text-black font-bold text-[7px]">PG</span>
-                </div>
+            <div class="flex items-center gap-1 pr-2">
+                <div class="w-6 h-6 bg-white rounded-full flex items-center justify-center border border-blue-500 text-[8px] text-blue-500 font-bold">U</div>
+                <div class="w-6 h-6 bg-white rounded-full flex items-center justify-center border border-red-500 text-[8px] text-red-500 font-bold">R</div>
+                <div class="w-6 h-6 bg-white rounded-full flex items-center justify-center bg-orange-900 text-white text-[7px] font-bold">24</div>
+                <div class="w-6 h-6 bg-yellow-500 rounded-full border border-white"></div>
+                <div class="w-6 h-6 bg-blue-500 rounded-full border border-white"></div>
+                <div class="w-6 h-6 bg-white rounded-full flex items-center justify-center text-black font-bold text-[7px]">PG</div>
             </div>
         </header>
 
         <div class="relative w-full h-[210px] bg-black shrink-0">
-            <img src="https://images.unsplash.com/photo-1599735073727-208cb54790ed?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover opacity-90">
-            <div class="absolute top-2 right-2 bg-transparent">
-                 <div class="w-8 h-8 rounded-full border border-white/20 bg-black/40 flex items-center justify-center">
-                    <span class="text-xs">🐓</span>
-                 </div>
+            <img src="https://images.unsplash.com/photo-1599735073727-208cb54790ed?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover opacity-80">
+            <div class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-black/60 px-2 py-0.5 rounded border border-white/20 flex gap-4 text-[10px] font-bold">
+                <span class="text-red-500">MERON 3970</span>
+                <span class="text-white">12</span>
+                <span class="text-blue-500">WALA 3740</span>
             </div>
         </div>
 
         <div class="bg-[#2a2d45] flex justify-center gap-4 py-1.5 shrink-0 border-b border-black/30">
             <div class="w-6 h-6 rounded-full bg-gray-600/50 flex items-center justify-center border border-green-500/50">🐓</div>
-            <div class="w-6 h-6 rounded-full bg-gray-600/50 flex items-center justify-center border border-green-500/50 text-[10px]">A</div>
-            <div class="w-6 h-6 rounded-full bg-gray-600/50 flex items-center justify-center border border-green-500/50 text-[10px]">B</div>
-            <div class="w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center border border-white/20 text-[10px] font-bold">W</div>
-            <div class="w-6 h-6 rounded-full bg-red-600 flex items-center justify-center border border-white/20 text-[10px] font-bold">M</div>
+            <div class="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center border border-white/20 text-[10px] font-bold text-white">W</div>
+            <div class="w-6 h-6 bg-red-600 rounded-full flex items-center justify-center border border-white/20 text-[10px] font-bold text-white">M</div>
         </div>
 
-        <div class="flex text-white font-bold text-[13px] h-[36px] shrink-0">
-            <div class="meron-red flex-1 flex items-center justify-center uppercase">Meron</div>
-            <div class="tie-green flex-1 flex items-center justify-center uppercase">Tie</div>
-            <div class="wala-blue flex-1 flex items-center justify-center uppercase">Wala</div>
-        </div>
-
-        <div class="odds-panel grid grid-cols-3 py-4 text-center shrink-0 border-b border-white/5">
-            <div><div class="text-2xl font-bold text-white">2.15</div><div class="text-gray-400 text-[10px]">0</div></div>
-            <div><div class="text-2xl font-bold text-white">8</div><div class="text-gray-400 text-[10px]">0</div></div>
-            <div><div class="text-2xl font-bold text-white">1.67</div><div class="text-gray-400 text-[10px]">0</div></div>
-        </div>
-
-        <div class="bg-[#24273d] grid grid-cols-3 gap-3 p-3 shrink-0">
-            <button class="action-blue text-white py-1.5 rounded-md text-[11px] font-bold flex items-center justify-center gap-1 shadow-lg"><span>⊕</span> ខ្ពស់</button>
-            <button class="action-blue text-white py-1.5 rounded-md text-[11px] font-bold flex items-center justify-center gap-1 shadow-lg"><span>⊕</span> ខ្ពស់</button>
-            <button class="action-blue text-white py-1.5 rounded-md text-[11px] font-bold flex items-center justify-center gap-1 shadow-lg"><span>⊕</span> ខ្ពស់</button>
-        </div>
-
-        <div class="p-3 bg-[#1a1c2e] shrink-0">
-            <p class="text-[10px] text-center mb-2 font-bold">
-                <span class="text-red-500">តិចបំផុត: 4,000</span> និង <span class="text-red-500">ច្រើនបំផុត: 400,000</span>
-            </p>
-            <div class="flex h-10 border border-indigo-500/50 rounded-md overflow-hidden">
-                <input type="text" class="flex-grow bg-white px-3 font-bold text-black outline-none" placeholder="0">
-                <button class="bg-[#2c3158] w-12 flex items-center justify-center border-l border-white/10 text-white">✕</button>
+        <div class="flex-grow overflow-y-auto">
+            <div class="flex text-white font-bold text-[13px] h-[36px] shrink-0">
+                <div class="meron-red flex-1 flex items-center justify-center uppercase">Meron</div>
+                <div class="tie-green flex-1 flex items-center justify-center uppercase">Tie</div>
+                <div class="wala-blue flex-1 flex items-center justify-center uppercase">Wala</div>
             </div>
-        </div>
 
-        <div class="flex justify-between px-2 pb-4 shrink-0">
-            <div class="chip bg-red-800 border-red-400">៥៣០ខ</div>
-            <div class="chip bg-pink-600 border-pink-300">១ម៉ឺន</div>
-            <div class="chip bg-blue-700 border-blue-400">៥ម៉ឺន</div>
-            <div class="chip bg-yellow-600 border-yellow-300">១០ម៉ឺន</div>
-            <div class="chip bg-green-600 border-green-300">៥០ម៉ឺន</div>
-            <div class="chip bg-green-900 border-green-600">១លាន</div>
-        </div>
-
-        <div class="flex-grow bg-white m-0.5 p-0.5 overflow-hidden">
-            <div class="grid grid-cols-12 grid-rows-6 h-full">
-                <div class="grid-cell"></div>
-                <div class="grid-cell"><div class="bg-blue-500 rounded-full w-5 h-5 flex items-center justify-center text-white text-[9px]">2</div></div>
-                <div class="grid-cell"><div class="bg-red-500 rounded-full w-5 h-5 flex items-center justify-center text-white text-[9px]">6</div></div>
-                <div class="grid-cell"><div class="bg-blue-500 rounded-full w-5 h-5 flex items-center justify-center text-white text-[9px]">8</div></div>
-                <div class="grid-cell"><div class="bg-red-500 rounded-full w-5 h-5 flex items-center justify-center text-white text-[9px]">11</div></div>
-                <div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
-                <div class="grid-cell"><div class="bg-red-500 rounded-full w-5 h-5 flex items-center justify-center text-white text-[9px]">1</div></div>
-                <div class="grid-cell"><div class="bg-blue-500 rounded-full w-5 h-5 flex items-center justify-center text-white text-[9px]">3</div></div>
-                <div class="grid-cell"><div class="bg-red-500 rounded-full w-5 h-5 flex items-center justify-center text-white text-[9px]">7</div></div>
-                <div class="grid-cell"><div class="bg-blue-500 rounded-full w-5 h-5 flex items-center justify-center text-white text-[9px]">9</div></div>
+            <div class="bg-[#1a1c2e] grid grid-cols-3 py-4 text-center border-b border-white/5">
+                <div><div class="text-2xl font-bold text-white">2.15</div><div class="text-gray-400 text-[10px]">0</div></div>
+                <div><div class="text-2xl font-bold text-white">8</div><div class="text-gray-400 text-[10px]">0</div></div>
+                <div><div class="text-2xl font-bold text-white">1.67</div><div class="text-gray-400 text-[10px]">0</div></div>
             </div>
-        </div>
 
-        <footer class="bg-[#0c0d15] h-[55px] flex justify-between items-center px-3 border-t border-gray-800 shrink-0">
-            <div class="flex items-center gap-2">
-                <div class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center text-lg shadow-inner">👤</div>
-                <div class="flex flex-col">
-                    <span class="text-blue-400 text-[12px] font-bold leading-none">$ 0</span>
-                    <span class="text-gray-500 text-[9px] mt-1 font-bold uppercase">AABFDAYY215</span>
+            <div class="bg-[#24273d] grid grid-cols-3 gap-3 p-3">
+                <button class="action-blue text-white py-1.5 rounded-md text-[11px] font-bold flex items-center justify-center gap-1">⊕ ខ្ពស់</button>
+                <button class="action-blue text-white py-1.5 rounded-md text-[11px] font-bold flex items-center justify-center gap-1">⊕ ខ្ពស់</button>
+                <button class="action-blue text-white py-1.5 rounded-md text-[11px] font-bold flex items-center justify-center gap-1">⊕ ខ្ពស់</button>
+            </div>
+
+            <div class="p-3 bg-[#1a1c2e]">
+                <p class="text-[10px] text-center mb-2 font-bold">
+                    <span class="text-red-500">តិចបំផុត: 4,000</span> និង <span class="text-red-500">ច្រើនបំផុត: 400,000</span>
+                </p>
+                <div class="flex h-10 border border-indigo-500/50 rounded-md overflow-hidden mb-4">
+                    <input type="text" class="flex-grow bg-white px-3 font-bold text-black outline-none" placeholder="0">
+                    <button class="bg-[#2c3158] w-12 text-white font-bold border-l border-white/10">✕</button>
+                </div>
+                <div class="flex justify-between px-1">
+                    <div class="chip bg-red-800 border-red-400">៥៣០ខ</div>
+                    <div class="chip bg-pink-600 border-pink-300">១ម៉ឺន</div>
+                    <div class="chip bg-blue-700 border-blue-400">៥ម៉ឺន</div>
+                    <div class="chip bg-yellow-600 border-yellow-300">១០ម៉ឺន</div>
+                    <div class="chip bg-green-600 border-green-300">៥០ម៉ឺន</div>
+                    <div class="chip bg-green-900 border-green-600">១លាន</div>
                 </div>
             </div>
-            <div class="flex gap-1.5">
-                <div class="w-8 h-8 bg-[#2d3748] rounded flex items-center justify-center border border-gray-700"><span class="text-[8px] text-white font-bold">CW</span></div>
-                <div class="w-8 h-8 bg-red-800 rounded flex items-center justify-center border border-red-600"><span class="text-[8px] text-white font-bold">168</span></div>
-                <div class="w-8 h-8 bg-[#2d3748] rounded flex items-center justify-center border border-gray-700 text-white text-xs">♠</div>
-                <div class="w-8 h-8 bg-[#2d3748] rounded flex items-center justify-center border border-gray-700 text-orange-500 text-xs font-black">S</div>
+
+            <div class="bg-white mx-0.5 p-0.5 overflow-hidden">
+                <div class="grid grid-cols-12 grid-rows-6">
+                    <div class="grid-cell"><div class="bg-red-500 rounded-full w-5 h-5 flex items-center justify-center text-white text-[9px]">1</div></div>
+                    <div class="grid-cell"><div class="bg-blue-500 rounded-full w-5 h-5 flex items-center justify-center text-white text-[9px]">2</div></div>
+                    <div class="grid-cell"><div class="bg-blue-500 rounded-full w-5 h-5 flex items-center justify-center text-white text-[9px]">3</div></div>
+                    <div class="grid-cell"><div class="bg-blue-500 rounded-full w-5 h-5 flex items-center justify-center text-white text-[9px]">4</div></div>
+                    <div class="grid-cell"><div class="bg-blue-500 rounded-full w-5 h-5 flex items-center justify-center text-white text-[9px]">5</div></div>
+                    <div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
+                    
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"><div class="bg-red-500 rounded-full w-5 h-5 flex items-center justify-center text-white text-[9px]">6</div></div>
+                    <div class="grid-cell"><div class="bg-red-500 rounded-full w-5 h-5 flex items-center justify-center text-white text-[9px]">7</div></div>
+                    <div class="grid-cell"><div class="bg-blue-500 rounded-full w-5 h-5 flex items-center justify-center text-white text-[9px]">8</div></div>
+                    <div class="grid-cell"><div class="bg-blue-500 rounded-full w-5 h-5 flex items-center justify-center text-white text-[9px]">9</div></div>
+                    <div class="grid-cell"><div class="bg-blue-500 rounded-full w-5 h-5 flex items-center justify-center text-white text-[9px]">10</div></div>
+                    <div class="grid-cell"><div class="bg-red-500 rounded-full w-5 h-5 flex items-center justify-center text-white text-[9px]">11</div></div>
+                    <div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
+                </div>
+            </div>
+
+            <div class="bg-[#3b3e54] flex justify-around py-2 border-t border-gray-700">
+                <div class="flex flex-col items-center">
+                    <div class="bg-red-500 rounded-full w-6 h-6 flex items-center justify-center text-white font-bold text-[10px]">4</div>
+                    <span class="text-[8px] text-gray-300 font-bold mt-1 uppercase">Meron</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="bg-blue-500 rounded-full w-6 h-6 flex items-center justify-center text-white font-bold text-[10px]">7</div>
+                    <span class="text-[8px] text-gray-300 font-bold mt-1 uppercase">Wala</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="bg-green-500 rounded-full w-6 h-6 flex items-center justify-center text-white font-bold text-[10px]">0</div>
+                    <span class="text-[8px] text-gray-300 font-bold mt-1 uppercase">Tie</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="bg-gray-500 rounded-full w-6 h-6 flex items-center justify-center text-white font-bold text-[10px]">0</div>
+                    <span class="text-[8px] text-gray-300 font-bold mt-1 uppercase">Cancel</span>
+                </div>
+            </div>
+        </div>
+
+        <footer class="bg-[#1a1c2e] h-[60px] flex shrink-0 border-t border-gray-800">
+            <div class="w-[120px] flex items-center gap-2 pl-3 border-r border-gray-800">
+                <div class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center text-xs text-white">👤</div>
+                <div class="flex flex-col leading-tight">
+                    <span class="text-blue-400 text-[11px] font-bold leading-none">$ 0</span>
+                    <span class="text-gray-500 text-[8px] font-bold mt-1">AABFDAYY215</span>
+                </div>
+            </div>
+            
+            <div class="flex-grow flex justify-around items-center px-1">
+                <div class="footer-logo-container">
+                    <img src="data:image/png;base64,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" alt="CW">
+                    <div class="status-dot bg-green-500"></div>
+                </div>
+                <div class="footer-logo-container active-footer-tab">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTY4oA3apKYwu4qLlg8tH7fVnaG04CSMEthg&s" alt="168">
+                    <div class="status-dot bg-green-500"></div>
+                </div>
+                <div class="footer-logo-container">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj7WVU1WEoXu9M2uyxevZpI5N5ZwHp_pYMwg&s" alt="Card">
+                    <div class="status-dot bg-red-500"></div>
+                </div>
+                <div class="footer-logo-container">
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2024/5/421019435/EL/WI/LQ/111864070/dragon-tiger-andar-bahar-game-development-service.png" alt="Dragon">
+                    <div class="status-dot bg-green-500"></div>
+                </div>
             </div>
         </footer>
     </div>
